@@ -1,0 +1,50 @@
+
+ 
+  
+  <nav class="navbar fixed-top">
+    <div class="navbar-inner header"  layout-fill layout-align="center center">
+        <div class="container" layout-fill layout-align="center center">
+           <div layout="row" layout-fill layout-align="center center"></div>
+           <img src= "'./src/FormalNoticeLogo2018.png'"/>
+            <h2><u>Fertilizer Calculator</u></h2></div></div>
+     <br/><br/><br/><br/> 
+    <ul class="nav navbar-nav nav-pills" style="animation-fill-mode: both" >
+      <li routerLinkActive="active">
+        <a routerLink="/starterTemplateForm">Records Check</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/starterreactiveform">BPS</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/basicform">N&P Loading</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/templateform">Available N</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/reactiveform">Available P</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/reactivedynamicform">Result</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/controlvalueaccessor">DRS</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/updateon">NF</a>
+      </li>
+    </ul>
+    <br/>    <br/>    <br/>   
+    <br/> 
+       <button type="submit" class="btn btn-default"  tooltip='Submit Button' tooltip-placement="right" style="margin-top:24px" style="color:rgb(8, 8, 8);background-color: #9BCCCC"> Submit</button> 
+       &nbsp;&nbsp;&nbsp;
+       <button type="submit" class="btn btn-default" [disabled]=false style="color:rgb(8, 8, 8);background-color: #9BCCCC">Close</button> 
+       &nbsp;&nbsp;&nbsp;
+       <button type="submit" class="btn btn-default" [disabled]=false style="color:rgb(8, 8, 8);background-color: #9BCCCC">Clear</button> 
+
+  </nav>
+<hr noshade="false">
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  

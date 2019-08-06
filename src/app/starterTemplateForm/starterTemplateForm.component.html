@@ -1,0 +1,96 @@
+ <form #starterForm="ngForm" (ngSubmit)="onSubmit()">
+   
+    <div class="row">
+        <div class="col-sm-4">
+    <h4><u>Farm Details</u></h4>
+
+    Herd Number: <input type="text" class="form-control"
+    name="herdNumber" 
+    #herdNumber="ngModel"
+    [(ngModel)]="farmDetails.herdNumber"
+      style="width: 300px" readonly="true"/>
+
+
+    <br />
+
+
+    Farmer Name: <input type="text" class="form-control"
+    name="firstName" 
+    #firstName="ngModel"
+    [(ngModel)]="farmDetails.firstName"
+      style="width: 300px" readonly="true"/>
+    
+  
+    <br />
+
+
+    County: <input type="text" class="form-control"
+    name="county" 
+    #county="ngModel"
+    [(ngModel)]="farmDetails.county"
+      style="width: 300px" readonly="true"/>
+   
+  
+    <br />
+ 
+        <div class="form-group">
+        <label for="derogationApproved">2018 Derogation approved</label>
+        <select class="form-control" name="derogationApproved" ngModel #derogationApproved="ngModel" required   style="width: 300px" >
+          <option *ngFor="let x of options" [value]="x">{{ x }}</option>
+        </select>
+        <div class="alert alert-danger" [hidden]="derogationApproved.valid || derogationApproved.pristine">required</div>
+      </div>
+   
+  
+      <br />
+ 
+      <div class="form-group">
+      <label for="buildApproved">2018 Phosphorus build-up action approved</label>
+      <select class="form-control" name="buildApproved" ngModel #buildApproved="ngModel" required   style="width: 300px" >
+        <option *ngFor="let y of options" [value]="y">{{ y }}</option>
+      </select>
+      <div class="alert alert-danger" [hidden]="buildApproved.valid || buildApproved.pristine">required</div>
+    </div>
+  </div>
+  <div class="col-sm-4"><div style="border-left:1px solid #000;height:500px"></div></div>
+  <div class="col-sm-4" layout="row" layout-align="center center">
+  <div layout="row" layout-align="border-left">
+    
+    <h4><u>Records check</u></h4>  
+
+    <br />
+    <div class="form-group">
+    <label for="recordReceived">Records Received:</label>
+    <my-date-picker name="mydate" [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event)" style="width: 290px" draggable="true" required></my-date-picker>
+   
+    <label for="recordsMaintained">Are records being maintained?</label>
+    <select class="form-control" name="recordsMaintained" ngModel #recordsMaintained="ngModel" required   style="width: 300px" >
+      <option *ngFor="let z of options" [value]="z">{{ z }}</option>
+    </select>
+    <div class="alert alert-danger" [hidden]="recordsMaintained.valid || recordsMaintained.pristine">required</div>
+  </div>
+
+
+
+
+    
+</div>
+</div>
+</div>
+  <br />
+ 
+
+    <button class="btn btn-default" [disabled]="!starterForm.valid">Submit</button>
+
+
+    
+    <br /><br />
+    {{ message }}
+    <br />
+    Valid: {{ firstName.valid}}
+    <br />
+    Pristine: {{ firstName.pristine }}
+    <br />
+    Touched: {{ firstName.touched }}
+
+</form>

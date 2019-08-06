@@ -1,0 +1,50 @@
+<div class="container">
+  <div *ngIf="!submitted">
+ 
+    <h1>N&P Loading tab</h1>
+
+    
+    <form #heroForm="ngForm" (ngSubmit)="onSubmit(heroForm.value)">
+      <div class="form-group">
+        <label for="name">Farmer Name</label>
+        <input type="text" class="form-control" name="name" ngModel #name="ngModel" required>
+        <div class="alert alert-danger" [hidden]="name.valid || name.pristine">Name is required</div>
+      </div>
+      <div class="form-group">
+        <label for="herdId">Herd</label>
+        <input type="text" class="form-control" name="herdId" ngModel #herdId="ngModel" required>
+        <div class="alert alert-danger" [hidden]="herdId.valid || herdId.pristine">Alter Ego is required</div>
+      </div>
+      <div class="form-group">
+        <label for="power">Scheme Year</label>
+        <select class="form-control" name="power" ngModel #power="ngModel" required>
+          <option *ngFor="let p of years" [value]="p">{{ p }}</option>
+        </select>
+        <div class="alert alert-danger" [hidden]="power.valid || power.pristine">required</div>
+      </div>
+      <button type="submit" class="btn btn-default" [disabled]="!heroForm.valid">Submit</button>
+    </form>
+  </div>
+  
+  <div *ngIf="submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-md-2">Name</div>
+      <div class="col-md-10 pull-left">{{ form.name }}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">herd</div>
+      <div class="col-md-10 pull-left">{{ form.herdId }}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">year</div>
+      <div class="col-md-10 pull-left">{{ form.power }}</div>
+    </div>
+    <br />
+    json formed:
+    <br />
+    {{ form | json }}
+    <br /><br />
+    <button class="btn btn-default" (click)="submitted=false">Edit</button>
+  </div>
+</div>
